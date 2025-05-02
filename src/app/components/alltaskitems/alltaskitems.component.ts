@@ -30,7 +30,10 @@ goToDetails(id: any) {
 
   this.router.navigate(['taskdetails'], { state: {  taskId: id  } });
 }
+updatetask(id:any){
+  this.router.navigate(['updatetask'], { state: {  taskId: id  } });
 
+}
 goToaddtask(){
   this.router.navigate(['addtask'])
 }

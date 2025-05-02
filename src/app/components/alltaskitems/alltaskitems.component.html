@@ -23,6 +23,9 @@
                 <a href="#" (click)="goToDetails(item.id)" routerLink="taskdetails" class="btn btn-primary d-flex align-items-center">
                   Details <i class="fa-solid fa-circle-info m-z ms-2"></i>
                 </a>
+                <a href="#" (click)="updatetask(item.id)" routerLink="taskdetails" class="btn btn-secondary d-flex align-items-center">
+                  Update <i class="fa-solid fa-pen m-1"></i>
+                </a>
                 <a href="#" (click)="Deletetask($event, item.id)" class="btn btn-danger d-flex align-items-center ms-3">
                   <i class="fa-solid fa-trash m-1"></i>Delete
                 </a>

@@ -29,7 +29,7 @@ export class TaskdetailsComponent {
           this.datservice.getCategoryById(this.taskdetails.categoryId).subscribe({
             next: (catRes) => {
               this.categorydetails = catRes;
-              
+
             },
             error: (err) => console.error(err)
           });
@@ -54,5 +54,9 @@ export class TaskdetailsComponent {
   }
   backtoall(){
     this.router.navigate(['tasks'])
+  }
+  updatetask(id:any){
+    this.router.navigate(['updatetask'], { state: {  taskId: id  } });
+
   }
 }

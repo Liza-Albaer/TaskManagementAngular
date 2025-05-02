@@ -4,6 +4,7 @@ import { NotfoundComponent } from './components/notfound/notfound.component';
 import { AlltaskitemsComponent } from './components/alltaskitems/alltaskitems.component';
 import { TaskdetailsComponent } from './components/taskdetails/taskdetails.component';
 import { AddtaskitemComponent } from './components/addtaskitem/addtaskitem.component';
+import { UpdatetaskComponent } from './components/updatetask/updatetask.component';
 
 export const routes: Routes = [
   {path:'',redirectTo:'home',pathMatch:'full'},
@@ -11,5 +12,6 @@ export const routes: Routes = [
   {path:'tasks', component:AlltaskitemsComponent,title:'Tasks'},
   {path:'taskdetails', component:TaskdetailsComponent},
   {path:'addtask', component:AddtaskitemComponent ,title:'AddTask'},
+  {path:'updatetask', component:UpdatetaskComponent ,title:'UpdateTask'},
   {path:"**" ,component:NotfoundComponent,title:'NotFound'}
 ];

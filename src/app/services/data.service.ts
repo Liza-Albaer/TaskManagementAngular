@@ -26,7 +26,12 @@ export class DataService {
     });
   }
 
-
+// Update a task
+updateTask(id: number, task: TaskItemDto): Observable<string> {
+  return this.http.put(`${this.baseUrl}/TaskItems/${id}`, task, {
+    responseType: 'text'
+  });
+}
 
   // Delete a task
   deleteTask(id: number): Observable<any> {

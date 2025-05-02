@@ -1,0 +1,113 @@
+<div class="container mt-4">
+  <h2 class="mb-4 text-center">Update Task</h2>
+
+  <form [formGroup]="taskForm" (ngSubmit)="updatetask()">
+    <!-- Title -->
+    <div class="mb-3">
+      <label for="title" class="form-label">Title <span class="text-danger">*</span></label>
+      <input
+        id="title"
+        type="text"
+        class="form-control"
+        formControlName="title"
+        placeholder="Enter task title"
+        required
+      />
+      @if (taskForm.get('title')?.touched && taskForm.get('title')?.errors?.['required']) {
+        <div class="text-danger">
+          Title is required.
+        </div>
+      }
+    </div>
+
+    <!-- Description -->
+    <div class="mb-3">
+      <label for="description" class="form-label">Description</label>
+      <textarea
+        id="description"
+        rows="4"
+        class="form-control"
+        formControlName="description"
+        placeholder="Enter task description"
+      ></textarea>
+    </div>
+
+    <!-- Creation Date (Read-only) -->
+    <div class="mb-3">
+      <label for="createdAt" class="form-label">Creation Date</label>
+      <input
+        id="createdAt"
+        type="date"
+        class="form-control"
+        [value]="getFormattedDate(taskForm.get('createdAt')?.value)"
+        readonly
+        disabled
+      />
+    </div>
+
+    <!-- Category -->
+    <div class="mb-3">
+      <label for="categoryId" class="form-label">Category <span class="text-danger">*</span></label>
+      <select
+        id="categoryId"
+        class="form-select"
+        formControlName="categoryId"
+        required
+      >
+        <option value="">-- Select Category --</option>
+        @for (cat of categories; track cat.id) {
+          <option [value]="cat.id" [selected]="cat.id === taskdetails.categoryId">
+            {{ cat.name }}
+          </option>
+        }
+      </select>
+      @if (taskForm.get('categoryId')?.touched && taskForm.get('categoryId')?.errors?.['required']) {
+        <div class="text-danger">
+          Category is required.
+        </div>
+      }
+    </div>
+
+    <!-- Status -->
+    <div class="mb-3">
+      <label for="statusId" class="form-label">Status <span class="text-danger">*</span></label>
+      <select
+        id="statusId"
+        class="form-select"
+        formControlName="statusId"
+        required
+      >
+        <option value="">-- Select Status --</option>
+        @for (status of taskstatuses; track status.id) {
+          <option [value]="status.id" [selected]="status.id === taskdetails.statusId">
+            {{ status.name }}
+          </option>
+        }
+      </select>
+      @if (taskForm.get('statusId')?.touched && taskForm.get('statusId')?.errors?.['required']) {
+        <div class="text-danger">
+          Status is required.
+        </div>
+      }
+    </div>
+
+    <!-- Due Date -->
+    <div class="mb-3">
+      <label for="dueDate" class="form-label">Due Date</label>
+      <input
+        id="dueDate"
+        type="date"
+        class="form-control"
+        formControlName="dueDate"
+        [value]="getFormattedDate(taskForm.get('dueDate')?.value)"
+      />
+    </div>
+
+    <!-- Submit Button -->
+    <div class="d-grid">
+      <button type="submit" class="btn btn-primary" [disabled]="taskForm.invalid">
+        Update Task
+      </button>
+    </div>
+  </form>
+</div>
