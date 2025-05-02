@@ -1,0 +1,28 @@
+<div class="card w-75 mt-5 mx-auto shadow-lg bg-body-secondary" >
+  <div class="card-body">
+    <h3 class="card-title text-center mb-4">Task Details</h3>
+<ul class="list-group list-group-flush">
+  <li class="list-group-item">
+    <strong>Title:</strong> {{ taskdetails.title }}
+  </li>
+  <li class="list-group-item">
+    <strong>Description:</strong> {{ taskdetails.description }}
+  </li>
+  <li class="list-group-item">
+    <strong  style="color:green;">Created Date:</strong> {{taskdetails.createdAt }}
+  </li>
+  <li class="list-group-item">
+    <strong style="color: red;">Due Date:</strong> {{taskdetails.dueDate }}
+  </li>
+
+  <li class="list-group-item">
+    <strong>Status:</strong> {{ statusdetails.name }}
+  </li>
+  <li class="list-group-item">
+    <strong>Category:</strong> {{ categorydetails.name }}
+  </li>
+</ul>
+<a href="#" routerLink="tasks" (click)="backtoall()" class="btn btn-secondary m-3"><i class="fa-solid fa-arrow-left m-1"></i>Back</a>
+
+ </div>
+</div>

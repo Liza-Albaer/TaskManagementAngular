@@ -1,0 +1,23 @@
+
+.bg-body-tertiary {
+  --bs-bg-opacity: 1;
+  background-color: #1D3F70 !important;
+
+}
+.navbar-brand, .nav-link{
+color: white;
+}
+.navbar-brand{
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 48px;
+}
+.newcolor{
+  background-color: #fff;
+}
+.h2{
+  text-transform: uppercase;
+  font-family: "Righteous", serif;
+  font-weight: 700;
+  font-style: normal;
+}

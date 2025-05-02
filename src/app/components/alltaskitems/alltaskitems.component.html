@@ -1,0 +1,36 @@
+<div class="container mt-5">
+  <div class="card shadow-lg bg-white rounded">
+    <div class="d-flex align-items-center justify-content-between gap-5 mt-2">
+      <h1 class="mx-auto">All Tasks</h1>
+      <a href="#" routerLink="addtask" (click)="goToaddtask()" class="btn btn-success m-3">Add Task <i class="fa-solid fa-plus m-1"></i></a>
+    </div>
+
+    <div class="row justify-content-center">
+      @for (item of result; track item) {
+        <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+          <div class="card shadow-lg"
+               [class]="{
+                 'bg-primary text-white': item.statusId === 1,
+                 'bg-warning': item.statusId === 2,
+                 'bg-success text-white': item.statusId === 3,
+                 'bg-body-secondary': item.statusId !== 1 && item.statusId !== 2 && item.statusId !== 3
+               }">
+            <div class="card-body">
+              <h4 class="card-title">{{item.title}}</h4>
+              <p class="card-text"><strong>Created Date:</strong> {{item.createdAt}}</p>
+              <p class="card-text"><strong>Due Date:</strong> {{item.dueDate}}</p>
+              <div class="d-flex justify-content-between mt-3">
+                <a href="#" (click)="goToDetails(item.id)" routerLink="taskdetails" class="btn btn-primary d-flex align-items-center">
+                  Details <i class="fa-solid fa-circle-info m-z ms-2"></i>
+                </a>
+                <a href="#" (click)="Deletetask($event, item.id)" class="btn btn-danger d-flex align-items-center ms-3">
+                  <i class="fa-solid fa-trash m-1"></i>Delete
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</div>
